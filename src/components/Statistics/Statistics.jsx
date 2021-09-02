@@ -1,30 +1,33 @@
-function Statistics({
-  getFeedbacksQuantity,
-  countTotalFeedback,
-  countPositiveFeedbackPercentage,
-}) {
+import PropTypes from 'prop-types';
+
+function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
-    <div>
-      <h2>Statistics</h2>
+    <>
       <p>
-        Good: <span>{getFeedbacksQuantity('good')}</span>
+        Good: <span>{good}</span>
       </p>
       <p>
-        Neutral: <span>{getFeedbacksQuantity('neutral')}</span>
+        Neutral: <span>{neutral}</span>
       </p>
       <p>
-        Bad: <span>{getFeedbacksQuantity('bad')}</span>
+        Bad: <span>{bad}</span>
       </p>
       <p>
-        Total: <span>{countTotalFeedback()}</span>
+        Total: <span>{total}</span>
       </p>
-      {countTotalFeedback() > 0 && (
-        <p>
-          Positive feedback: <span>{countPositiveFeedbackPercentage()}%</span>
-        </p>
-      )}
-    </div>
+      <p>
+        Positive feedback: <span>{positivePercentage}%</span>
+      </p>
+    </>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
+};
 
 export { Statistics };
