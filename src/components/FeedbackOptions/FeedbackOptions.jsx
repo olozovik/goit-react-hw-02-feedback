@@ -1,14 +1,19 @@
 import PropTypes from 'prop-types';
+import { Buttons } from './FeedbackOptions.styled';
 
 function FeedbackOptions({ options, onLeaveFeedback }) {
-  return options.map(option => {
-    const label = option.replace(option[0], option[0].toUpperCase());
-    return (
-      <button key={option} onClick={() => onLeaveFeedback(option)}>
-        {label}
-      </button>
-    );
-  });
+  return (
+    <Buttons>
+      {options.map(option => {
+        const label = option.replace(option[0], option[0].toUpperCase());
+        return (
+          <button key={option} onClick={() => onLeaveFeedback(option)}>
+            {label}
+          </button>
+        );
+      })}
+    </Buttons>
+  );
 }
 
 FeedbackOptions.propTypes = {

@@ -5,7 +5,7 @@ function Notification({ message }) {
 }
 
 Notification.propTypes = {
-  messsage: PropTypes.string,
+  message: PropTypes.string,
 };
 
 export { Notification };
